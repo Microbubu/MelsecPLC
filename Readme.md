@@ -16,3 +16,5 @@ This is a project to test PlcLib.
 
 This is a WPF project to test Melsec PLC communication with serial port. Before using, You must make sure set a station number to PLC device with
 a tool named Communication Setup Utility, which is supported by MELSOFT official.
+
+![Melsec PLC Demo](MelsecPLCDemo.png)
