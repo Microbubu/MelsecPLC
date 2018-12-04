@@ -71,7 +71,9 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <TextBlock TextWrapping="Wrap">
-                Device address and data to write textbox is allowed to input multiple data. 
+                Tips:
+                <LineBreak/>
+                Device address and data to write textbox is allowed to use multiple data. 
                 In that case, each data can be seperated by comma(,). For example, you can input 
                 "D400,D401,D402,D403" in device address textbox.
             </TextBlock>

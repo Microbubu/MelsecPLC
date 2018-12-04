@@ -1,20 +1,18 @@
 ## PlcLib
 
-锟斤拷锟斤拷一锟斤拷锟斤拷锟斤拷PLC锟斤拷锟斤拷锟斤拷目猓壳帮拷丫锟绞碉拷值锟斤拷锟斤拷锟斤拷锟絇LC锟侥诧拷锟斤拷锟斤拷
+这是一个包含PLC操作类的库，目前已经实现的是三菱PLC的操作。
 
 This is a library including some PLC operation classes, but only MelsecPLC class can be used.
 
 ## PlcLib.Test
 
-锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷PlcLib锟斤拷锟斤拷目锟斤拷
+这是用来测试PlcLib的项目。
 
 This is a project to test PlcLib.
 
 ## MelsecPLC.Test
 
-锟斤拷锟斤拷一锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷PLC锟斤拷锟斤拷通锟脚碉拷WPF锟斤拷目锟斤拷锟斤拷使锟斤拷之前锟斤拷要确锟斤拷PLC锟借备锟窖撅拷使锟斤拷MELSOFT锟劫凤拷锟结供锟斤拷Communication Setup Utility锟斤拷锟竭凤拷锟斤拷锟秸撅拷锟脚★拷
+这是一个测试三菱PLC串口通信的WPF项目，在使用之前需要确保PLC设备已经使用MELSOFT官方提供的Communication Setup Utility工具分配好站点号。
 
 This is a WPF project to test Melsec PLC communication with serial port. Before using, You must make sure set a station number to PLC device with
 a tool named Communication Setup Utility, which is supported by MELSOFT official.
-
-![Melsec PLC Demo](MelsecPLCDemo.png)
