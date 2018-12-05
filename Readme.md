@@ -12,9 +12,9 @@ This is a project to test PlcLib.
 
 ## MelsecPLC.Test
 
-这是一个测试三菱PLC串口通信的WPF项目，在使用之前需要确保PLC设备已经使用MELSOFT官方提供的Communication Setup Utility工具分配好站点号。
+这是一个测试三菱PLC串口通信的WPF项目，在使用之前需要确保PLC设备已经使用MELSOFT官方提供的Communication Setup Utility工具分配好站点号和串口。
 
-This is a WPF project to test Melsec PLC communication with serial port. Before using, You must make sure set a station number to PLC device with
+This is a WPF project to test Melsec PLC communication with serial port. Before using, You must make sure set serial port information and a station number to PLC device with
 a tool named Communication Setup Utility, which is supported by MELSOFT official.
 
 ![Melsec PLC Demo](MelsecPLCDemo.png)
