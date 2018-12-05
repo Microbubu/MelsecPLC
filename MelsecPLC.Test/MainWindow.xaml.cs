@@ -21,23 +21,30 @@ namespace MelsecPLC.Test
 
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
-            if ((string)OpenButton.Content == "Open")
+            try
             {
-                model.InitialMelsecPlc();
-                if (model.MelsecPlc.Open())
+                if ((string)OpenButton.Content == "Open")
                 {
-                    OpenButton.Content = "Close";
-                    MessageBox.Show("Open port successfully.");
+                    model.InitialMelsecPlc();
+                    if (model.MelsecPlc.Open())
+                    {
+                        OpenButton.Content = "Close";
+                        MessageBox.Show("Open port successfully.");
+                    }
+                    else MessageBox.Show("Open port failed.");
                 }
-                else MessageBox.Show("Open port failed.");
+                else
+                {
+                    if (model.MelsecPlc != null)
+                    {
+                        if (model.MelsecPlc.Close())
+                            OpenButton.Content = "Open";
+                    }
+                }
             }
-            else
+            catch(Exception ex)
             {
-                if(model.MelsecPlc!=null)
-                {
-                    if (model.MelsecPlc.Close())
-                        OpenButton.Content = "Open";
-                }
+                MessageBox.Show(ex.Message);
             }
         }
 
