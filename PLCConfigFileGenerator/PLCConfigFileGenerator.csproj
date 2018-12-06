@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{24FB617B-BCAB-4559-8B8A-53EB3571A5DE}</ProjectGuid>
+    <ProjectGuid>{01BADB86-9C11-4FD8-94E9-171EB5428C19}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MelsecPLC.Test</RootNamespace>
-    <AssemblyName>MelsecPLC.Test</AssemblyName>
+    <RootNamespace>PLCConfigFileGenerator</RootNamespace>
+    <AssemblyName>PLCConfigFileGenerator</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -56,7 +56,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="TestModel.cs" />
+    <Compile Include="TagEditWindow.xaml.cs">
+      <DependentUpon>TagEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TreeNodeEditWindow.xaml.cs">
+      <DependentUpon>TreeNodeEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TreeViewModel.cs" />
+    <Compile Include="ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +76,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TagEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TreeNodeEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -101,6 +116,10 @@
       <Project>{4aecf826-e800-41e8-93f8-6475fb0a58f7}</Project>
       <Name>PlcLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\group.png" />
+    <Resource Include="Assets\root.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

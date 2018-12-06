@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,11 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\ICommunication.cs" />
+    <Compile Include="Common\NotifyPropertyChange.cs" />
+    <Compile Include="Config\Config.cs" />
+    <Compile Include="Config\Dev.cs" />
+    <Compile Include="Config\Group.cs" />
+    <Compile Include="Config\Tag.cs" />
     <Compile Include="Omron\OmronPlc.cs" />
     <Compile Include="Omron\PLCDataType.cs" />
     <Compile Include="Omron\PLCStruct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MelsecPLC.cs" />
+    <Compile Include="Melsec\MelsecPLC.cs" />
     <Compile Include="Common\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +76,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

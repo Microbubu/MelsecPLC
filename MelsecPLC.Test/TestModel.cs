@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
+using PlcCommunication.Common;
 
 namespace MelsecPLC.Test
 {
-    public class TestModel : INotifyPropertyChanged
+    public class TestModel : NotifyPropertyChange
     {
         public TestModel()
         {
@@ -111,10 +111,5 @@ namespace MelsecPLC.Test
 
             return retList;
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void Notify(string propertyName)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

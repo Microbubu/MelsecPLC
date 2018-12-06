@@ -1,0 +1,46 @@
+﻿<Window x:Class="PLCConfigFileGenerator.TagEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLCConfigFileGenerator"
+        mc:Ignorable="d"
+        Title="TagEditWindow" Width="500" Height="150" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label>TagName</Label>
+        <Label Grid.Row="1">Device Address</Label>
+        <TextBox Grid.Column="1" Name="NameTextBox" Text="{Binding TagName}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="AddressTextBox" Text="{Binding DeviceAddress}"/>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="5">
+            <Button Name="OKButton" Click="OKButton_Click">OK</Button>
+            <Button Name="CancelButton" Click="CancelButton_Click">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>
