@@ -55,9 +55,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlcCommunication\PlcLib.csproj">
+    <ProjectReference Include="..\PlcCommunication\PlcCommunication.csproj">
       <Project>{4aecf826-e800-41e8-93f8-6475fb0a58f7}</Project>
-      <Name>PlcLib</Name>
+      <Name>PlcCommunication</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

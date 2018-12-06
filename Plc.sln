@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28306.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlcLib", "PlcCommunication\PlcLib.csproj", "{4AECF826-E800-41E8-93F8-6475FB0A58F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlcCommunication", "PlcCommunication\PlcCommunication.csproj", "{4AECF826-E800-41E8-93F8-6475FB0A58F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlcLib.Test", "PlcLib.Test\PlcLib.Test.csproj", "{4B99683D-5B25-4774-8A01-1DD8712478B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelsecPLC.Test", "MelsecPLC.Test\MelsecPLC.Test.csproj", "{24FB617B-BCAB-4559-8B8A-53EB3571A5DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelsecPLCDemo", "MelsecPLCDemo\MelsecPLCDemo.csproj", "{24FB617B-BCAB-4559-8B8A-53EB3571A5DE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3D88A116-AB4C-4256-8B16-82E538E65BEA}"
 	ProjectSection(SolutionItems) = preProject
