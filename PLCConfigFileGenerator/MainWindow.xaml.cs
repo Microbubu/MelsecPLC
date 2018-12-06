@@ -156,12 +156,12 @@ namespace PLCConfigFileGenerator
             {
                 var window = new TreeNodeEditWindow(NodeType.Dev, null);
                 window.Owner = this;
-                var text = window.ShowDialog();
+                var ret = window.ShowDialog();
 
-                if (string.IsNullOrEmpty(text))
+                if (string.IsNullOrEmpty(ret))
                     return;
 
-                var dev = new Dev() { DevName = text };
+                var dev = new Dev() { DevName = ret };
 
                 if (viewModel.Config.Devs == null)
                     viewModel.Config.Devs = new List<Dev>();
@@ -269,6 +269,8 @@ namespace PLCConfigFileGenerator
         /// <param name="e"></param>
         private void TagsViewNewMenu_Clicked(object sender, RoutedEventArgs e)
         {
+            if (viewModel.SelectedTreeNode == null) return;
+
             var window = new TagEditWindow();
             var ret = window.ShowDialog();
             if (ret == null) return;

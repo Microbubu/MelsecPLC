@@ -13,6 +13,8 @@ namespace PLCConfigFileGenerator
         public TagEditWindow()
         {
             InitializeComponent();
+            newTag = new Tag();
+            this.DataContext = newTag;
         }
 
         public TagEditWindow(Tag tag)

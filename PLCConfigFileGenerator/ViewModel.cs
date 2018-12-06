@@ -55,6 +55,39 @@ namespace PLCConfigFileGenerator
             }
         }
 
+        private bool _tagsViewNewMenuEnable = false;
+        public bool TagsViewNewMenuEnable
+        {
+            get => _tagsViewNewMenuEnable;
+            set
+            {
+                _tagsViewNewMenuEnable = value;
+                Notify(nameof(TagsViewNewMenuEnable));
+            }
+        }
+
+        private bool _tagsViewDeleteMenuEnable = false;
+        public bool TagsViewDeleteMenuEnable
+        {
+            get => _tagsViewDeleteMenuEnable;
+            set
+            {
+                _tagsViewDeleteMenuEnable = value;
+                Notify(nameof(TagsViewDeleteMenuEnable));
+            }
+        }
+
+        private bool _tagsViewEditMenuEnable = false;
+        public bool TagsViewEditMenuEnable
+        {
+            get => _tagsViewEditMenuEnable;
+            set
+            {
+                _tagsViewEditMenuEnable = value;
+                Notify(nameof(TagsViewEditMenuEnable));
+            }
+        }
+
         private TreeViewModel _selectedTreeNode;
         public TreeViewModel SelectedTreeNode
         {
@@ -63,28 +96,10 @@ namespace PLCConfigFileGenerator
             {
                 _selectedTreeNode = value;
                 TagCollection.Clear();
-
-                if (_selectedTreeNode == null)
+                SetTreeContextMenu();
+                SetTagsViewContextMenu();
+                if (_selectedTreeNode?.Deepth == 2)
                 {
-                    TreeNewDevMenuEnable = true;
-                    TreeNewGroupMenuEnable = false;
-                    TreeDeleteMenuEnable = false;
-                    TreeEditMenuEnable = false;
-                }
-                else if (_selectedTreeNode.Deepth == 1)
-                {
-                    TreeNewDevMenuEnable = true;
-                    TreeNewGroupMenuEnable = true;
-                    TreeDeleteMenuEnable = true;
-                    TreeEditMenuEnable = true;
-                }
-                else if (_selectedTreeNode.Deepth == 2)
-                {
-                    TreeNewDevMenuEnable = false;
-                    TreeNewGroupMenuEnable = true;
-                    TreeDeleteMenuEnable = true;
-                    TreeEditMenuEnable = true;
-
                     var group = _selectedTreeNode.ConfigItem as Group;
                     group?.Tags?.ForEach(v => TagCollection.Add(v));
                 }
@@ -113,6 +128,7 @@ namespace PLCConfigFileGenerator
             set
             {
                 _selectedTag = value;
+                SetTagsViewContextMenu();
                 Notify(nameof(SelectedTag));
             }
         }
@@ -121,6 +137,21 @@ namespace PLCConfigFileGenerator
         {
             LeftTree?.Clear();
             TagCollection.Clear();
+        }
+
+        private void SetTreeContextMenu()
+        {
+            TreeNewDevMenuEnable = _selectedTreeNode == null || _selectedTreeNode.Deepth == 1;
+            TreeNewGroupMenuEnable = _selectedTreeNode != null;
+            TreeDeleteMenuEnable = _selectedTreeNode != null;
+            TreeEditMenuEnable = _selectedTreeNode != null;
+        }
+
+        private void SetTagsViewContextMenu()
+        {
+            TagsViewNewMenuEnable = _selectedTreeNode != null;
+            TagsViewDeleteMenuEnable = _selectedTreeNode != null && _selectedTag != null;
+            TagsViewEditMenuEnable = _selectedTreeNode != null && _selectedTag != null;
         }
     }
 }

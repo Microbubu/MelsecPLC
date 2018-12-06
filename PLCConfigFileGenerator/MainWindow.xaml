@@ -65,9 +65,9 @@
             </ListView.View>
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="New Tag" Click="TagsViewNewMenu_Clicked"/>
-                    <MenuItem Header="Delete Tag" Click="TagsViewDeleteMenu_Clicked"/>
-                    <MenuItem Header="Edit Tag" Click="TagsViewEditMenu_Clicked"/>
+                    <MenuItem Header="New Tag" IsEnabled="{Binding TagsViewNewMenuEnable}" Click="TagsViewNewMenu_Clicked"/>
+                    <MenuItem Header="Delete Tag" IsEnabled="{Binding TagsViewDeleteMenuEnable}" Click="TagsViewDeleteMenu_Clicked"/>
+                    <MenuItem Header="Edit Tag" IsEnabled="{Binding TagsViewEditMenuEnable}" Click="TagsViewEditMenu_Clicked"/>
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>
