@@ -56,7 +56,9 @@
                 </ContextMenu>
             </TreeView.ContextMenu>
         </TreeView>
-        <ListView Grid.Row="1" x:Name="TagsView" Grid.Column="1" Margin="5" SelectedItem="{Binding SelectedTag}">
+        <ListView Grid.Row="1" Grid.Column="1"
+                  x:Name="TagsView" FontSize="14"
+                  Margin="5" SelectedItem="{Binding SelectedTag}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="100" Header="Name" DisplayMemberBinding="{Binding TagName}"></GridViewColumn>

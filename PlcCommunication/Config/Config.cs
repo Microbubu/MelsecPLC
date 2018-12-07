@@ -6,8 +6,10 @@ using System.Text;
 
 namespace PlcCommunication.Config
 {
+    [XmlRoot]
     public class Config
     {
+        [XmlAttribute]
         public string ConfigName { get; set; }
 
         public List<Dev> Devs { get; set; }
@@ -27,36 +29,44 @@ namespace PlcCommunication.Config
 
         public static void SerializeJsonToFile(Config config, string file)
         {
+            if (!File.Exists(file)) return;
+
             var text = JsonConvert.SerializeObject(config);
             File.WriteAllText(file, text);
         }
 
         public static Config DeserializeFromXml(string file)
         {
+            if (!File.Exists(file)) return null;
+
             XmlSerializer serializer = new XmlSerializer(typeof(Config));
-            Config config = null;
-            using (FileStream stream = File.OpenRead(file))
+            using (FileStream fs = File.OpenRead(file))
             {
-                config = (Config)serializer.Deserialize(stream);
+                StreamReader reader = new StreamReader(fs, Encoding.UTF8);
+                return (Config)serializer.Deserialize(reader);
             }
-            return config;
         }
 
         public static string SerializeToXml(Config config)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Config));
-            StringWriter sw = new StringWriter();
-            serializer.Serialize(sw, config);
-            StringBuilder sb = sw.GetStringBuilder();
-            return sb.ToString();
+            using (StringWriter sw = new StringWriter())
+            {
+                serializer.Serialize(sw, config);
+                StringBuilder sb = sw.GetStringBuilder();
+                return sb.ToString();
+            } 
         }
 
         public static void SerializeXmlToFile(Config config, string file)
         {
+            if (!File.Exists(file)) return;
+
             XmlSerializer serializer = new XmlSerializer(typeof(Config));
-            using(FileStream stream = File.OpenWrite(file))
+            using (StringWriter sw = new StringWriter())
             {
-                serializer.Serialize(stream, config);
+                serializer.Serialize(sw, config);
+                File.WriteAllText(file, sw.ToString(), Encoding.UTF8);
             }
         }
     }

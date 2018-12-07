@@ -35,45 +35,81 @@ namespace PLCConfigFileGenerator
         {
             viewModel.Config = new Config()
             {
-                ConfigName = "TestviewModel.Config",
+                ConfigName = "TestConfig",
                 Devs = new List<Dev>()
                 {
                     new Dev()
                     {
-                        DevName="Dev1",
+                        DevName="Developer",
                         Groups=new List<Group>()
                         {
                             new Group()
                             {
-                                GroupName="Group1",
+                                GroupName="Github",
                                 Tags=new List<Tag>()
                                 {
                                     new Tag()
                                     {
-                                        TagName="Tag1",
-                                        DeviceAddress="Tag1Addr"
+                                        TagName="GithubID",
+                                        DeviceAddress="Microbubu"
                                     },
                                     new Tag()
                                     {
-                                        TagName="Tag2",
-                                        DeviceAddress="Tag2Addr"
+                                        TagName="GithubPage",
+                                        DeviceAddress="https://microbubu.github.io"
                                     }
                                 }
                             },
                             new Group()
                             {
-                                GroupName="Group2",
+                                GroupName="Weibo",
                                 Tags=new List<Tag>()
                                 {
                                     new Tag()
                                     {
-                                        TagName="Tag3",
-                                        DeviceAddress="Tag3Addr"
+                                        TagName="WeiboID",
+                                        DeviceAddress="Microbubu"
                                     },
                                     new Tag()
                                     {
-                                        TagName="Tag4",
-                                        DeviceAddress="Tag4Addr"
+                                        TagName="BlogPage",
+                                        DeviceAddress="https://weibo.com/microbubu"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    new Dev()
+                    {
+                        DevName="Microsoft",
+                        Groups=new List<Group>()
+                        {
+                            new Group()
+                            {
+                                GroupName="WebSite",
+                                Tags=new List<Tag>()
+                                {
+                                    new Tag()
+                                    {
+                                        TagName="HomePage",
+                                        DeviceAddress="https://www.microsoft.com"
+                                    },
+                                    new Tag()
+                                    {
+                                        TagName="MSDN",
+                                        DeviceAddress="https://msdn.microsoft.com"
+                                    }
+                                }
+                            },
+                            new Group()
+                            {
+                                GroupName="Employees",
+                                Tags=new List<Tag>()
+                                {
+                                    new Tag()
+                                    {
+                                        TagName="CEO",
+                                        DeviceAddress="Satya Nadella"
                                     }
                                 }
                             }
@@ -81,6 +117,7 @@ namespace PLCConfigFileGenerator
                     }
                 }
             };
+
             viewModel.LeftTree = TreeViewModel.CreateTreeFromConfig(viewModel.Config);
         }
         #endregion
@@ -279,6 +316,7 @@ namespace PLCConfigFileGenerator
             }
             if (window != null)
             {
+                window.Owner = this;
                 var ret = window.ShowDialog();
                 if (!string.IsNullOrEmpty(ret))
                     viewModel.SelectedTreeNode.DisplayName = ret;
@@ -295,7 +333,9 @@ namespace PLCConfigFileGenerator
             if (viewModel.SelectedTreeNode == null) return;
 
             var window = new TagEditWindow();
+            window.Owner = this;
             var ret = window.ShowDialog();
+
             if (ret == null) return;
 
             if ((viewModel.SelectedTreeNode.ConfigItem as Group).Tags == null)
@@ -330,7 +370,9 @@ namespace PLCConfigFileGenerator
                 return;
 
             var window = new TagEditWindow(viewModel.SelectedTag);
+            window.Owner = this;
             var ret = window.ShowDialog();
+
             if (ret == null) return;
 
             viewModel.SelectedTag.TagName = ret.TagName;

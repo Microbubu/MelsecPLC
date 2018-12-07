@@ -1,72 +1,34 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-16"?>
 <Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Devs>
-    <Dev>
-      <DevName>MelsecPLC</DevName>
+    <Dev DevName="MelsecPLC">
       <Groups>
-        <Group>
-          <GroupName>Steam</GroupName>
+        <Group GroupName="Steam">
           <Tags>
-            <Tag>
-              <TagName>Temperature</TagName>
-              <DeviceAddress>D8000</DeviceAddress>
-              <Enable>false</Enable>
-            </Tag>
-            <Tag>
-              <TagName>Pressure</TagName>
-              <DeviceAddress>D9000</DeviceAddress>
-              <Enable>false</Enable>
-            </Tag>
+            <Tag TagName="Temperature" DeviceAddress="D8000" Enable="false" />
+            <Tag TagName="Pressure" DeviceAddress="D9000" Enable="false" />
           </Tags>
         </Group>
-        <Group>
-          <GroupName>Valve</GroupName>
+        <Group GroupName="Valve">
           <Tags>
-            <Tag>
-              <TagName>GFat</TagName>
-              <DeviceAddress>D4000</DeviceAddress>
-              <Enable>false</Enable>
-            </Tag>
-            <Tag>
-              <TagName>GFatHand</TagName>
-              <DeviceAddress>D5000</DeviceAddress>
-              <Enable>false</Enable>
-            </Tag>
+            <Tag TagName="GFat" DeviceAddress="D4000" Enable="false" />
+            <Tag TagName="GFatHand" DeviceAddress="D5000" Enable="false" />
           </Tags>
         </Group>
       </Groups>
     </Dev>
-    <Dev>
-      <DevName>OmronPLC</DevName>
+    <Dev DevName="OmronPLC">
       <Groups>
-        <Group>
-          <GroupName>WOW</GroupName>
+        <Group GroupName="WOW">
           <Tags>
-            <Tag>
-              <TagName>Illidan</TagName>
-              <DeviceAddress>D4546</DeviceAddress>
-              <Enable>false</Enable>
-            </Tag>
-            <Tag>
-              <TagName>Jaina</TagName>
-              <DeviceAddress>D8989</DeviceAddress>
-              <Enable>false</Enable>
-            </Tag>
+            <Tag TagName="Illidan" DeviceAddress="D4546" Enable="false" />
+            <Tag TagName="Jaina" DeviceAddress="D8989" Enable="false" />
           </Tags>
         </Group>
-        <Group>
-          <GroupName>HOTS</GroupName>
+        <Group GroupName="HOTS">
           <Tags>
-            <Tag>
-              <TagName>Arthus</TagName>
-              <DeviceAddress>D6767</DeviceAddress>
-              <Enable>false</Enable>
-            </Tag>
-            <Tag>
-              <TagName>Ratter</TagName>
-              <DeviceAddress>D2323</DeviceAddress>
-              <Enable>false</Enable>
-            </Tag>
+            <Tag TagName="Arthus" DeviceAddress="D6767" Enable="false" />
+            <Tag TagName="Ratter" DeviceAddress="D2323" Enable="false" />
           </Tags>
         </Group>
       </Groups>
