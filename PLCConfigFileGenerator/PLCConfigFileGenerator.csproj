@@ -103,6 +103,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ConfigFileExamples\config.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -122,6 +123,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ConfigFileExamples\config.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
