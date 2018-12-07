@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PLCConfigFileGenerator"
         mc:Ignorable="d"
-        Title="TagEditWindow" Width="500" Height="150" ResizeMode="NoResize">
+        Title="TagEditWindow" Width="500" Height="160" ResizeMode="NoResize">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="5"/>

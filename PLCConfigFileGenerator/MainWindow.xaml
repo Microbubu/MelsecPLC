@@ -39,8 +39,8 @@
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate DataType="{x:Type local:TreeViewModel}" ItemsSource="{Binding Path=Children}">
                     <StackPanel Orientation="Horizontal">
-                        <Image VerticalAlignment="Center" Source="{Binding Icon}" Width="16" Height="16" Margin="0,0,2,2"/>
-                        <TextBlock VerticalAlignment="Center" Text="{Binding DisplayName}"/>
+                        <Image VerticalAlignment="Center" Source="{Binding Icon}" Width="20" Height="20" Margin="0,0,2,2"/>
+                        <TextBlock VerticalAlignment="Center" FontSize="14" Text="{Binding DisplayName}"/>
                         <StackPanel.ToolTip>
                             <TextBlock VerticalAlignment="Center" Text="{Binding Name}" TextWrapping="Wrap" MaxWidth="200"/>
                         </StackPanel.ToolTip>

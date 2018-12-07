@@ -105,14 +105,21 @@ namespace PLCConfigFileGenerator
             {
                 ofd.Multiselect = false;
                 ofd.CheckFileExists = true;
-                ofd.Filter = "Json File|*.json";
+                ofd.Filter = "Xml Files|*.xml|Json Files|*.json";
 
                 if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    var file = ofd.FileName;
+                    string file = ofd.FileName;
+                    string extension = GetFileExtension(file);
                     try
                     {
-                        viewModel.Config = Config.Deserialize(file);
+                        if (extension == "json")
+                            viewModel.Config = Config.DeserializeFromJson(file);
+                        else if (extension == "xml")
+                            viewModel.Config = Config.DeserializeFromXml(file);
+
+                        if (viewModel.Config == null) return;
+
                         viewModel.Reset();
                         viewModel.LeftTree = TreeViewModel.CreateTreeFromConfig(viewModel.Config);
                         ConfigTree.ItemsSource = null;
@@ -130,12 +137,20 @@ namespace PLCConfigFileGenerator
         {
             using (var sfd = new System.Windows.Forms.SaveFileDialog())
             {
-                sfd.Filter = "Json File|*.json";
+                sfd.Filter = "Xml Files|*.xml|Json Files|*.json";
                 if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    var fileName = sfd.FileName;
+                    string fileName = sfd.FileName;
+                    string extension = GetFileExtension(fileName);
                     viewModel.Config = TreeViewModel.GetConfigObjectFromTree(viewModel.LeftTree);
-                    Config.Serialize(viewModel.Config, fileName);
+
+                    if (viewModel.Config == null)
+                        return;
+
+                    if (extension == "json")
+                        Config.SerializeJsonToFile(viewModel.Config, fileName);
+                    else if (extension == "xml")
+                        Config.SerializeXmlToFile(viewModel.Config, fileName);
                 }
             }
         }
@@ -143,6 +158,14 @@ namespace PLCConfigFileGenerator
         private void CloseCommandExecute(object sender, ExecutedRoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private string GetFileExtension(string fileName)
+        {
+            string[] splits = fileName?.Split('.');
+            if (splits == null || splits.Length == 0)
+                return string.Empty;
+            return splits[splits.Length - 1].ToLower();
         }
 
         /// <summary>
