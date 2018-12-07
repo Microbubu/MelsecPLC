@@ -61,8 +61,8 @@
                   Margin="5" SelectedItem="{Binding SelectedTag}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100" Header="Name" DisplayMemberBinding="{Binding TagName}"></GridViewColumn>
-                    <GridViewColumn Width="100" Header="Address" DisplayMemberBinding="{Binding DeviceAddress}"></GridViewColumn>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding TagName}"></GridViewColumn>
+                    <GridViewColumn Header="Address" DisplayMemberBinding="{Binding DeviceAddress}"></GridViewColumn>
                 </GridView>
             </ListView.View>
             <ListView.ContextMenu>

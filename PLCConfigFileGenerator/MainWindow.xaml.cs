@@ -18,7 +18,7 @@ namespace PLCConfigFileGenerator
         {
             InitializeComponent();
             viewModel = new ViewModel();
-            //this.CreateTree();
+            this.CreateTree();
             this.DataContext = viewModel;
             this.ConfigTree.ItemsSource = viewModel.LeftTree;
             this.TagsView.ItemsSource = viewModel.TagCollection;
