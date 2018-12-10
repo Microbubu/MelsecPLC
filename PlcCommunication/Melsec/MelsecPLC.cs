@@ -1,6 +1,8 @@
 ﻿using System;
 using ACTMULTILib;
 using System.Collections.Generic;
+using System.Linq;
+using PlcCommunication.Config;
 
 namespace PlcCommunication.Melsec
 {
@@ -12,6 +14,19 @@ namespace PlcCommunication.Melsec
         private ActEasyIFClass com = null;
 
         public bool IsOpen { get; private set; }
+
+        private Config.Config config;
+
+        private string configFile;
+        public string ConfigFile
+        {
+            get => configFile;
+            set
+            {
+                configFile = value;
+                config = Config.Config.DeserializeFromXml(value);
+            }
+        }
 
         public MelsecPLC()
         {
@@ -74,12 +89,26 @@ namespace PlcCommunication.Melsec
             throw new Exception(ReadFailed);
         }
 
+        public int Read(string devName, string groupName, string tagName)
+        {
+            var tag = FindTag(devName, groupName, tagName);
+            if (tag == null) throw new Exception("Tag not found.");
+            return Read(tag.DeviceAddress, tag.Size);
+        }
+
         public bool Write(string device, int size, int data)
         {
             if (!IsOpen) throw new Exception(PortNotOpen);
 
             int ret = com.WriteDeviceBlock(device, size, ref data);
             return ret == 0;
+        }
+
+        public bool Write(string devName, string groupName, string tagName, int data)
+        {
+            var tag = FindTag(devName, groupName, tagName);
+            if (tag == null) throw new Exception("Tag noe found.");
+            return Write(tag.DeviceAddress, tag.Size, data);
         }
 
         public int[] ReadRandom(List<string> deviceList)
@@ -110,5 +139,11 @@ namespace PlcCommunication.Melsec
             int ret = com.WriteDeviceRandom(devices, data.Length, ref data[0]);
             return ret == 0;
         }
+
+        private Tag FindTag(string devName, string groupName, string tagName)
+            => config?.Devs?
+                .FirstOrDefault(v => v.DevName == devName)?.Groups?
+                .FirstOrDefault(v => v.GroupName == groupName)?.Tags?
+                .FirstOrDefault(v => v.TagName == tagName);
     }
 }

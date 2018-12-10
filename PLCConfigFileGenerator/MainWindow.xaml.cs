@@ -275,6 +275,14 @@ namespace PLCConfigFileGenerator
         {
             if (viewModel.SelectedTreeNode == null) return;
 
+            var messageResult = MessageBox.Show(
+                $"Are you sure to delete \"{viewModel.SelectedTreeNode.DisplayName}\"",
+                "Delete",
+                MessageBoxButton.OKCancel,
+                MessageBoxImage.Question);
+
+            if (messageResult == MessageBoxResult.Cancel) return;
+
             //删除Dev
             if (viewModel.SelectedTreeNode.Parent == null)
             {
@@ -355,6 +363,14 @@ namespace PLCConfigFileGenerator
             if (viewModel.SelectedTag == null)
                 return;
 
+            var messageResult = MessageBox.Show(
+                $"Are you sure to delete \"{ viewModel.SelectedTag.TagName}\"",
+                "Delete",
+                MessageBoxButton.OKCancel,
+                MessageBoxImage.Question);
+
+            if (messageResult == MessageBoxResult.Cancel) return;
+
             (viewModel.SelectedTreeNode.ConfigItem as Group).Tags.Remove(viewModel.SelectedTag);
             viewModel.TagCollection.Remove(viewModel.SelectedTag);
         }
@@ -377,6 +393,7 @@ namespace PLCConfigFileGenerator
 
             viewModel.SelectedTag.TagName = ret.TagName;
             viewModel.SelectedTag.DeviceAddress = ret.DeviceAddress;
+            viewModel.SelectedTag.Size = ret.Size;
         }
     }
 }

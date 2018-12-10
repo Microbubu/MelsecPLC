@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PLCConfigFileGenerator"
         mc:Ignorable="d"
-        Title="TagEditWindow" Width="500" Height="160" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+        Title="TagEditWindow" Width="500" Height="200" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="5"/>
@@ -24,6 +24,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -32,13 +33,16 @@
 
         <Label>TagName</Label>
         <Label Grid.Row="1">Device Address</Label>
-        <TextBox Grid.Column="1" Name="NameTextBox" Text="{Binding TagName}"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Name="AddressTextBox" Text="{Binding DeviceAddress}"/>
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2"
+        <Label Grid.Row="2">Size</Label>
+        <TextBox Grid.Column="1" Text="{Binding TagName}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding DeviceAddress}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Size}"/>
+
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
-                    Margin="5">
+                    Margin="5,5,0,5">
             <Button Name="OKButton" Click="OKButton_Click">OK</Button>
             <Button Name="CancelButton" Click="CancelButton_Click">Cancel</Button>
         </StackPanel>

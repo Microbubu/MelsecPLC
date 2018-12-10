@@ -8,6 +8,7 @@ namespace PlcCommunication.Config
     {
         private string _tagName;
         private string _deviceAddress;
+        private int _size;
 
         [XmlAttribute]
         public string TagName
@@ -28,6 +29,17 @@ namespace PlcCommunication.Config
             {
                 _deviceAddress = value;
                 Notify(nameof(DeviceAddress));
+            }
+        }
+
+        [XmlAttribute]
+        public int Size
+        {
+            get => _size;
+            set
+            {
+                _size = value;
+                Notify(nameof(Size));
             }
         }
 

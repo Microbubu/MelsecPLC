@@ -23,7 +23,8 @@ namespace PLCConfigFileGenerator
             newTag = new Tag
             {
                 TagName = tag.TagName,
-                DeviceAddress = tag.DeviceAddress
+                DeviceAddress = tag.DeviceAddress,
+                Size = tag.Size
             };
 
             this.DataContext = newTag;

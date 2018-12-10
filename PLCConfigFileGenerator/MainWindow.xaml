@@ -63,6 +63,7 @@
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding TagName}"></GridViewColumn>
                     <GridViewColumn Header="Address" DisplayMemberBinding="{Binding DeviceAddress}"></GridViewColumn>
+                    <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}"/>
                 </GridView>
             </ListView.View>
             <ListView.ContextMenu>
