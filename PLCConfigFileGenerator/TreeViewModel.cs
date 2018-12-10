@@ -15,6 +15,7 @@ namespace PLCConfigFileGenerator
             set
             {
                 _displayName = value;
+                Name = value;
                 DisplayNameChanged();
                 Notify(nameof(DisplayName));
             }
@@ -28,8 +29,7 @@ namespace PLCConfigFileGenerator
 
         public int Deepth { get; set; }
 
-        private object _configItem;
-        public object ConfigItem { get => _configItem; }
+        public object ConfigItem { get; private set; }
 
         public TreeViewModel()
         {
@@ -39,23 +39,25 @@ namespace PLCConfigFileGenerator
         public TreeViewModel(object obj)
         {
             Children = new List<TreeViewModel>();
-            _configItem = obj;
+            ConfigItem = obj;
         }
 
         private void DisplayNameChanged()
         {
-            if(this._configItem is Dev)
-                ((Dev)_configItem).DevName = _displayName;
+            if(this.ConfigItem is Dev)
+                ((Dev)ConfigItem).DevName = _displayName;
 
-            if (this._configItem is Group)
-                ((Group)_configItem).GroupName = _displayName;
+            if (this.ConfigItem is Group)
+                ((Group)ConfigItem).GroupName = _displayName;
 
-            if (this._configItem is Tag)
-                ((Tag)_configItem).TagName = _displayName;
+            if (this.ConfigItem is Tag)
+                ((Tag)ConfigItem).TagName = _displayName;
         }
 
         public static List<TreeViewModel> CreateTreeFromConfig(Config config)
         {
+            if (config == null) return null;
+            if (config.Devs == null) return null;
             if (config?.Devs?.Count == 0) return null;
 
             var tree = new List<TreeViewModel>();
