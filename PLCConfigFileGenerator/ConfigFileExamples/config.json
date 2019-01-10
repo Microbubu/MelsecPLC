@@ -1,1 +1,75 @@
-{"ConfigName":null,"Devs":[{"DevName":"MelsecPLC","Groups":[{"GroupName":"Steam","Tags":[{"TagName":"Temperature","DeviceAddress":"D8000","Enable":false},{"TagName":"Pressure","DeviceAddress":"D9000","Enable":false}]},{"GroupName":"Valve","Tags":[{"TagName":"GFat","DeviceAddress":"D4000","Enable":false},{"TagName":"GFatHand","DeviceAddress":"D5000","Enable":false}]}]},{"DevName":"OmronPLC","Groups":[{"GroupName":"WOW","Tags":[{"TagName":"Illidan","DeviceAddress":"D4546","Enable":false},{"TagName":"Jaina","DeviceAddress":"D8989","Enable":false}]},{"GroupName":"HOTS","Tags":[{"TagName":"Arthus","DeviceAddress":"D6767","Enable":false},{"TagName":"Ratter","DeviceAddress":"D2323","Enable":false}]}]}]}
+{
+    "ConfigName": null,
+    "Devs": [
+        {
+            "DevName": "MelsecPLC",
+            "Groups": [
+                {
+                    "GroupName": "Steam",
+                    "Tags": [
+                        {
+                            "TagName": "Temperature",
+                            "DeviceAddress": "D8000",
+                            "Enable": false
+                        },
+                        {
+                            "TagName": "Pressure",
+                            "DeviceAddress": "D9000",
+                            "Enable": false
+                        }
+                    ]
+                },
+                {
+                    "GroupName": "Valve",
+                    "Tags": [
+                        {
+                            "TagName": "GFat",
+                            "DeviceAddress": "D4000",
+                            "Enable": false
+                        },
+                        {
+                            "TagName": "GFatHand",
+                            "DeviceAddress": "D5000",
+                            "Enable": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "DevName": "OmronPLC",
+            "Groups": [
+                {
+                    "GroupName": "WOW",
+                    "Tags": [
+                        {
+                            "TagName": "Illidan",
+                            "DeviceAddress": "D4546",
+                            "Enable": false
+                        },
+                        {
+                            "TagName": "Jaina",
+                            "DeviceAddress": "D8989",
+                            "Enable": false
+                        }
+                    ]
+                },
+                {
+                    "GroupName": "HOTS",
+                    "Tags": [
+                        {
+                            "TagName": "Arthus",
+                            "DeviceAddress": "D6767",
+                            "Enable": false
+                        },
+                        {
+                            "TagName": "Ratter",
+                            "DeviceAddress": "D2323",
+                            "Enable": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
