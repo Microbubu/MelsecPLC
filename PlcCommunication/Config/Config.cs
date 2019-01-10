@@ -31,7 +31,8 @@ namespace PlcCommunication.Config
         {
             if (!File.Exists(file)) return;
 
-            var text = JsonConvert.SerializeObject(config);
+            var jsonSerializerSettings = new JsonSerializerSettings() { Formatting = Formatting.Indented };
+            var text = JsonConvert.SerializeObject(config, jsonSerializerSettings);
             File.WriteAllText(file, text);
         }
 
